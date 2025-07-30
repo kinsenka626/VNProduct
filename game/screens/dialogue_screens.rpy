@@ -77,14 +77,39 @@ screen quick_menu():
 
     ## Ensure this appears on top of other screens.
     zorder 100
+    
 
     if quick_menu:
+                # Main container that handles hover effect
+        fixed:
+            align (0.0, 0.5)
+            # Invisible trigger area (right edge of screen)
+            mousearea:
+                area (1720, 0, 200, 1.0) 
+                hovered [Show("quick_menu_visible")]
+                unhovered [Hide("quick_menu_visible")]
+            
+            # Visible sidebar (hidden by default)
+            use quick_menu_visible
 
+screen quick_menu_visible():
+    # Actual visible menu content
+    frame:
+        align (1.0, 0.5)
+        background None  # Transparent background
+        padding (0, 0)
+        margin (0, 0)
+        
+        at transform:
+            alpha 0.0  # Start invisible
+            on show:
+                linear 0.2 alpha 1.0  # Fade in
+            on hide:
+                linear 0.2 alpha 0.0  # Fade out
+        
         vbox:
-            align (1.0, 0.5)
             spacing 30
             style_prefix "quick"
-
             textbutton _("保存") action ShowMenu('save')
             textbutton _("加载") action ShowMenu("load")
             textbutton _("上文") action Rollback()
@@ -97,21 +122,26 @@ screen quick_menu():
             textbutton _("退出") action Quit(confirm=not main_menu)
 
 
-## This code ensures that the quick_menu screen is displayed in-game, whenever
-## the player has not explicitly hidden the interface.
+
+
 init python:
     config.overlay_screens.append("quick_menu")
 
 default quick_menu = True
 
-style quick_hbox:
-    xalign 0.5
-    yalign 1.0 yoffset -8
+style quick_vbox:
+    xalign 1.0
+    yalign 0.5 
     spacing 8
 
 style quick_button:
     background None
     padding (15, 6, 15, 0)
+    # at transform:
+    #     on hover:
+    #         linear 0.1 xoffset 5  
+    #     on idle:
+    #         linear 0.1 xoffset 0  
 
 style quick_button_text:
     size 21

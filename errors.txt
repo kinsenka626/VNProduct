@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/screens/dialogue_screens.rpy", line 89: keyword argument 'area' is incompatible with 'align'.
+    area (0, 0, 200, 1.0)
+        ^
+
+Ren'Py Version: Ren'Py 8.4.0.25071206
+Thu Jul 31 01:52:24 2025
