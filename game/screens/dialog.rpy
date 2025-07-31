@@ -55,7 +55,7 @@ screen display():
     # 设置内容区域
     frame:
         style_prefix ""
-        # background Solid("#FFFFFF")
+        background Solid("#FFFFFF")
         xsize config.screen_width - 100
         ysize config.screen_height - 250
         align (0.5, 0.5)
