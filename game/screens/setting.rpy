@@ -1,17 +1,28 @@
 # setting.rpy - 设置主界面 (只包含导航和背景)
 image setting_background:
-    "bg_setting.jpg"
-
+    "bg_2.png"
+image return_button_idle :
+    "return_button.png"
+    zoom 0.5
+image return_button_hover :
+    "return_button.png"
+    zoom 0.6
 screen setting():
     tag menu
     add "setting_background"
     # 左上角标题 (根据图片)
+
     fixed:
-        pos (50, 50)
-        text "chuanyue":
-            size 36
-            color "#FFDAB9"
-            outlines [(2, "#FFEBCD", 0, 0)]
+        pos (10, 10)
+        textbutton _(""):
+            align(0.0, 0.0)
+            style "return_tab_button"
+            action Return()
+            # text "设置": 
+            #     size 66
+            #     color "#000"
+            #     # outlines [(2, "#FFEBCD", 0, 0)]
+        
     
     # 选项卡导航栏 (左侧垂直排列)
     hbox:
@@ -40,18 +51,15 @@ screen setting():
             style "tab_button"
         
         # 返回主菜单按钮
-    textbutton _("返回"):
-        align(0.9, 0.95)
-        style "return_tab_button"
-        action Return()
+
     
     # 默认选中的选项卡
     default current_tab = "display"
     
     # 右侧灰色面板 (包含所有设置内容)
     frame:
-        background Solid("#CCCCCCCC")  # 灰色半透明面板
-        pos (10, 100)
+        background Solid("#CCCCCC80")  # 灰色半透明面板
+        pos (0, 100)
         xsize config.screen_width 
         ysize config.screen_height -100
         
@@ -74,25 +82,36 @@ style tab_button:
     font gui.interface_text_font
     size 26
     color "#FAF0E6"
-    hover_color "#FF0000"  # 悬停时变红色
+    hover_color "#FFE4E1"  # 悬停时变红色
     outlines []
 
 # 当前选中的选项卡样式
 style selected_tab_button:
-    background Solid("#E6E6FA", corner_radius=5)  # 红色背景匹配图片
+    # background Solid("#E6E6FA", corner_radius=5)  # 红色背景匹配图片
     padding (15, 10)
     font gui.interface_text_font
     size 26
-    color "#FF0000"  # 红色字体匹配图片
-    hover_color "#FF0000"
+    color "#DB7093"  # 红色字体匹配图片
+    hover_color "#DB7093"
     outlines []
 
 # 返回按钮样式
 style return_tab_button:
-    background Solid("#F0F8FF", corner_radius=5)
-    padding (15, 10)
+    idle_background "return_button_idle"
+    hover_background "return_button_hover" 
+    selected_idle_background "return_button_idle"
+    selected_hover_background "return_button_hover"
+        # 调整文本属性（如果需要）
+    color "#FFFFFF"  # 文本颜色
+    hover_color "#FFFF00"  # 悬停时文本颜色
+    outlines [(1, "#000000", 0, 0)]  # 文本描边
     font gui.interface_text_font
-    size 26
-    color "#FFFFFF"
-    hover_color "#FFD700"
-    margin (0, 30, 0, 0)  # 上方留出间距
+    size 24
+    
+    # 调整按钮尺寸（自动匹配图片大小）
+    xminimum 200  # 最小宽度
+    yminimum 50   # 最小高度
+    
+    # 文本对齐方式
+    xalign 0.5
+    yalign 0.5

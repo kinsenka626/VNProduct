@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens/setting.rpy", line 4: expected 'comma or end of line' not found.
-    color= '#000000'
+File "game/screens/display.rpy", line 10: vbox expects a non-empty block.
+    vbox:
          ^
 
 Ren'Py Version: Ren'Py 8.4.0.25071206
-Thu Jul 31 23:14:13 2025
+Fri Aug  1 01:09:31 2025

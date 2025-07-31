@@ -62,7 +62,7 @@ style input:
 
 style hyperlink_text:
     hover_underline True
-    color "#f93c3e"
+    color "#DB7093"
 
 style gui_text:
     color '#ffffff'
@@ -73,6 +73,7 @@ style button:
     xysize (None, None)
     padding (0, 0)
 
+
 style button_text:
     is gui_text
     yalign 0.5
@@ -80,7 +81,7 @@ style button_text:
     ## The color used for a text button when it is neither selected nor hovered.
     idle_color '#000000'
     ## The color that is used for buttons and bars that are hovered.
-    hover_color '#ff8335'
+    hover_color '#DB7093'
     ## The color used for a text button when it is selected but not focused. A
     ## button is selected if it is the current screen or preference value.
     selected_color '#ffffff'
@@ -90,7 +91,11 @@ style button_text:
 style label_text:
     is gui_text
     size 36
-    color '#f93c3e'
+    color '#DB7093'
+
+
+# 特殊样式
+
 
 
 style bar:

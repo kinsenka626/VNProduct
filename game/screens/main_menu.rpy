@@ -7,8 +7,7 @@
 
 ## Replace this with your background image, if you like
 image main_menu_background:
-    "bg_moli.jpg",
-    zoom 0.5  # 确保缩放生效
+    "bg_1.png"
 
 screen main_menu():
 
@@ -16,6 +15,7 @@ screen main_menu():
     tag menu
 
     add "main_menu_background"
+
 
     vbox:
         xpos 160
