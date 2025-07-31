@@ -10,16 +10,13 @@ screen setting():
         hbox:
             align (0.8, 0.0)
             spacing 30
+            # preferences、text、confirm、music、voice
+            textbutton _("显示") action ShowMenu("display")
+            textbutton _("文字") action ShowMenu("display")
+            textbutton _("确认") action ShowMenu("display")
+            textbutton _("声音") action ShowMenu("display")
+            textbutton _("语音") action ShowMenu("display")
 
-            textbutton _("设置") action ShowMenu("preferences")
-            textbutton _("设置") action ShowMenu("preferences")
-            textbutton _("设置") action ShowMenu("preferences")
-            textbutton _("设置") action ShowMenu("preferences")
-            textbutton _("设置") action ShowMenu("preferences")
-            # textbutton _("文字") action ShowMenu("text")
-            # textbutton _("确认") action ShowMenu("dialog")
-            # textbutton _("音量") action ShowMenu("sound")
-            # textbutton _("语音") action ShowMenu("voice")
 
         textbutton _("返回"):
             style "return_button"
