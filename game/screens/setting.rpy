@@ -6,7 +6,7 @@ image return_button_idle :
     zoom 0.5
 image return_button_hover :
     "return_button.png"
-    zoom 0.6
+    zoom 0.55
 screen setting():
     tag menu
     add "setting_background"
@@ -38,9 +38,9 @@ screen setting():
             action [SetScreenVariable("current_tab", "text"), Play("sound", "audio/sfx/click.wav")]
             style "tab_button"
         
-        textbutton _("确认"):
-            action [SetScreenVariable("current_tab", "dialog"), Play("sound", "audio/sfx/click.wav")]
-            style "tab_button"
+        # textbutton _("确认"):
+        #     action [SetScreenVariable("current_tab", "dialog"), Play("sound", "audio/sfx/click.wav")]
+        #     style "tab_button"
         
         textbutton _("声音"):
             action [SetScreenVariable("current_tab", "sound"), Play("sound", "audio/sfx/click.wav")]
@@ -68,8 +68,8 @@ screen setting():
             use display_settings  # 包含显示设置子界面
         elif current_tab == "text":
             use text_settings
-        elif current_tab == "dialog":
-            use dialog_settings
+        # elif current_tab == "dialog":
+        #     use dialog_settings
         elif current_tab == "sound":
             use sound_settings
         elif current_tab == "voice":

@@ -89,7 +89,8 @@ init python:
             return renpy.display.behavior.get_tooltip(self.yes)
 
         def __call__(self):
-
+            # if persistent.confirm_settings.get("return_to_title", True) == False:
+            #     self.screen = None
             if self.screen is None:
                 return Confirm(self.prompt, self.yes, self.no, self.confirm_selected)()
             elif self.confirm_selected or not self.get_selected():

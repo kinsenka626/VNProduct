@@ -1,10 +1,12 @@
 
-## Confirm screen ##############################################################
+## 确认界面 ##############################################################
 ##
-## The confirm screen is called when Ren'Py wants to ask the player a yes or no
-## question.
+# 确认界面.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#confirm
+image bg_button:
+    "gui/bg_dialog.png"
+    zoom 0.5  # 白底灰框
 
 screen confirm(message, yes_action, no_action=None):
 
@@ -15,7 +17,7 @@ screen confirm(message, yes_action, no_action=None):
 
     style_prefix "confirm"
 
-    add "#0008" # You can replace this with your own overlay image
+    # add "#0008" # You can replace this with your own overlay image
 
     frame:
         has vbox
@@ -24,10 +26,9 @@ screen confirm(message, yes_action, no_action=None):
 
         hbox:
 
-            textbutton _("Confirm") action yes_action
-            # Modified so you can just have a confirmation prompt
+            textbutton _("确认") action yes_action
             if no_action is not None:
-                textbutton _("Cancel") action no_action
+                textbutton _("取消") action no_action
 
     ## Right-click and escape answer "no".
     if no_action is not None:
@@ -36,8 +37,9 @@ screen confirm(message, yes_action, no_action=None):
         key "game_menu" action yes_action
 
 style confirm_frame:
-    background Frame("gui/frame.png", 60, 60, 60, 60, tile=False)
+    background Frame("gui/bg_dialog.png", 60, 60, 60, 60, tile=False)
     padding (60, 60, 60, 60)
+    maximum(700,300)
     xalign 0.5
     yalign 0.5
 
@@ -47,11 +49,13 @@ style confirm_vbox:
 
 style confirm_prompt:
     xalign 0.5
+    color "#DB7093"
 
 style confirm_prompt_text:
     textalign 0.5
     align (0.5, 0.5)
     layout "subtitle"
+    color "#DB7093"
 
 style confirm_hbox:
     xalign 0.5

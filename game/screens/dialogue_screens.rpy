@@ -117,7 +117,17 @@ screen quick_menu_visible():
             textbutton _("自动") action Preference("auto-forward", "toggle")
             textbutton _("跳过") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("设置") action ShowMenu('setting')
-            textbutton _("标题") action MainMenu()
+            # if persistent.confirm_settings["return_to_title"]
+            #     textbutton _("标题") action MainMenu() 
+            # else  
+            #     textbutton _("标题") action MainMenu(confirm=False)
+            # 在屏幕定义（如 screens.rpy 的 navigation 部分）
+            textbutton _("标题"):
+                action If(
+                    persistent.confirm_settings.get("return_to_title", True),
+                    MainMenu(confirm=True),   # 开启弹窗确认
+                    MainMenu(confirm=False)   # 关闭弹窗，直接返回标题
+                )
             textbutton _("帮助") action ShowMenu("help")
             textbutton _("退出") action Quit(confirm=not main_menu)
 

@@ -1,105 +1,263 @@
-# display.rpy - 显示设置子界面
-
+# display.rpy - 显示设置子界面（已匹配UI设计）
+image idle_screen_button:
+    "Elements/Menu/button.png"
+    zoom 0.5  #
+image hover_screen_button:
+    "Elements/Menu/button_hover.png"
+    zoom 0.5  # 白底灰框
 # 显示设置内容
 screen display_settings():
     # 设置项容器
     vbox:
-        align(0.0, 0.0)
-        spacing 35
-        # 显示模式设置 (图片中的第一个设置项)
-        vbox:
-            align(0.5, 0.0)
-            # 标题使用红色字体
-            text _("显示模式"):
-                size 28
-                color "#DB7093"  # 红色字体匹配图片
-                bold True
-                yalign 0.0
-            
-            hbox:
-                spacing 40
-                # 窗口按钮
+        align(0.5, 0.15)
+        box_align 1
+        spacing 60
+        hbox:
+            first_spacing 200
+            # xminimum 150
+            # yminimum 40
+            box_align 0.5
+            spacing 100
+            # xalign 0.5
+            frame:
+                minimum (400,64)
+                maximum (400,64)
+                text _("屏幕显示模式："):
+                    size 28
+                    color "#DB7093"
+                    xalign 0
+                    yalign 0.5
+            frame:
+                minimum (178,64)
+                maximum (178,64)
                 button:
+                    yalign 1
+                    xalign 1
                     action [Preference("display", "window"), Play("sound", "audio/sfx/click.wav")]
                     hovered Play("sound", "audio/sfx/hover.wav")
-                    background None
-                    has hbox
-                    # 使用红圈黑点表示选中状态
-                    # add "gui/radio_selected.png" yalign 0.5  # 默认选中
-                    text _(" 窗口") style "setting_option"
-                
-                # 全屏按钮
+                    idle_background "idle_screen_button"
+                    hover_background "hover_screen_button"
+                    selected_idle_background "hover_screen_button"
+                text _("Window"):
+                    color "#DB7093"  
+                    size 24
+                    xalign 0.5
+                    yalign 0.5
+            frame:
+                minimum (178,64)
+                maximum (178,64)
                 button:
                     action [Preference("display", "fullscreen"), Play("sound", "audio/sfx/click.wav")]
                     hovered Play("sound", "audio/sfx/hover.wav")
-                    background None
-                    has hbox
-                    # add "gui/radio_unselected.png" yalign 0.5
-                    text _(" 全屏") style "setting_option"
-        
-        # UI语言设置 (图片中的第二个设置项)
-        vbox:
-            text _("UI"):
-                style "setting_label"
-            
-            hbox:
-                spacing 40
-                # 简体字按钮
+                    idle_background "idle_screen_button"
+                    hover_background "hover_screen_button"
+                    selected_idle_background "hover_screen_button"             
+                text _("Fullscreen"):
+                    color "#DB7093"  
+                    size 24
+                    xalign 0.5
+                    yalign 0.5
+        hbox:
+            first_spacing 200
+            box_align 0.5
+            spacing 100
+            frame:
+                minimum (400,64)
+                maximum (400,64)
+                text _("覆盖存档时进行确认："):
+                    size 28
+                    color "#DB7093"
+                    xalign 0
+                    yalign 0.5
+            frame:
+                minimum (178,64)
+                maximum (178,64)
                 button:
-                    action [SetField(persistent, "ui_language", "zh-simplified"), Play("sound", "audio/sfx/click.wav")]
+                    selected (persistent.confirm_settings["overwrite_save"] == True)
+                    action [
+                    SetDict(persistent.confirm_settings, "overwrite_save", True),
+                    Play("sound", "audio/sfx/click.wav")  # 添加点击音效
+                    ]
                     hovered Play("sound", "audio/sfx/hover.wav")
-                    background None
-                    has hbox
-                    # 使用红圈黑点表示选中状态
-                    # add "gui/radio_selected.png" yalign 0.5  # 默认选中
-                    text _(" 简体字") style "setting_option"
-                
-                # 繁体字按钮
+                    idle_background "idle_screen_button"
+                    hover_background "hover_screen_button"
+                    selected_idle_background "hover_screen_button"
+                text _("开启"):
+                    color "#DB7093" 
+                    hover_color "#FFFFFF"
+                    size 24
+                    align (0.5,0.5)
+
+            frame:
+                minimum (178,64)
+                maximum (178,64)
                 button:
-                    action [SetField(persistent, "ui_language", "zh-traditional"), Play("sound", "audio/sfx/click.wav")]
+                    selected (persistent.confirm_settings["overwrite_save"] == False)
+                    action [
+                    SetDict(persistent.confirm_settings, "overwrite_save", False),
+                    Play("sound", "audio/sfx/click.wav")  # 添加点击音效
+                    ]
                     hovered Play("sound", "audio/sfx/hover.wav")
-                    background None
-                    has hbox
-                    # add "gui/radio_unselected.png" yalign 0.5
-                    text _(" 繁体字") style "setting_option"
-        
-        # 自动返回设置 (图片中的第三个设置项)
-        vbox:
-            text _("保存后直接返回到游戏"):
-                style "setting_label"
-            
-            hbox:
-                spacing 40
-                # 开启按钮
+                    idle_background "idle_screen_button"
+                    hover_background "hover_screen_button"  
+                    selected_idle_background "hover_screen_button"          
+                text _("关闭"):
+                    color "#DB7093"  
+                    size 24
+                    xalign 0.5
+                    yalign 0.5  
+        hbox:
+            first_spacing 200
+            box_align 0.5
+            spacing 100
+            frame:
+                minimum (400,64)
+                maximum (400,64)
+                text _("读取存档时确认："):
+                    size 28
+                    color "#DB7093"
+                    xalign 0
+                    yalign 0.5
+            frame:
+                minimum (178,64)
+                maximum (178,64)
                 button:
-                    action [SetField(persistent, "auto_return", True), Play("sound", "audio/sfx/click.wav")]
+                    selected (persistent.confirm_settings["load_save"] == True)
+                    action [
+                    SetDict(persistent.confirm_settings, "load_save", True),
+                    Play("sound", "audio/sfx/click.wav")  # 添加点击音效
+                    ]
                     hovered Play("sound", "audio/sfx/hover.wav")
-                    background None
-                    has hbox
-                    # 使用红圈黑点表示选中状态
-                    # add "gui/radio_selected.png" yalign 0.5  # 默认选中
-                    text _(" 开启") style "setting_option"
-                
-                # 关闭按钮
+                    idle_background "idle_screen_button"
+                    hover_background "hover_screen_button"
+                    selected_idle_background "hover_screen_button"
+                text _("开启"):
+                    color "#DB7093" 
+                    hover_color "#FFFFFF"
+                    size 24
+                    align (0.5,0.5)
+
+            frame:
+                minimum (178,64)
+                maximum (178,64)
                 button:
-                    action [SetField(persistent, "auto_return", False), Play("sound", "audio/sfx/click.wav")]
+                    selected (persistent.confirm_settings["load_save"] == False)
+                    action [
+                    SetDict(persistent.confirm_settings, "load_save", False),
+                    Play("sound", "audio/sfx/click.wav")  # 添加点击音效
+                    ]
                     hovered Play("sound", "audio/sfx/hover.wav")
-                    background None
-                    has hbox
-                    # add "gui/radio_unselected.png" yalign 0.5
-                    text _(" 关闭") style "setting_option"
+                    idle_background "idle_screen_button"
+                    hover_background "hover_screen_button"  
+                    selected_idle_background "hover_screen_button"          
+                text _("关闭"):
+                    color "#DB7093"  
+                    size 24
+                    xalign 0.5
+                    yalign 0.5 
+        hbox:
+            first_spacing 200
+            box_align 0.5
+            spacing 100
+            frame:
+                minimum (400,64)
+                maximum (400,64)
+                text _("删除存档时确认："):
+                    size 28
+                    color "#DB7093"
+                    xalign 0
+                    yalign 0.5
+            frame:
+                minimum (178,64)
+                maximum (178,64)
+                button:
+                    selected (persistent.confirm_settings["delete_save"] == True)
+                    action [
+                    SetDict(persistent.confirm_settings, "delete_save", True),
+                    Play("sound", "audio/sfx/click.wav")  # 添加点击音效
+                    ]
+                    hovered Play("sound", "audio/sfx/hover.wav")
+                    idle_background "idle_screen_button"
+                    hover_background "hover_screen_button"
+                    selected_idle_background "hover_screen_button"
+                text _("开启"):
+                    color "#DB7093" 
+                    hover_color "#FFFFFF"
+                    size 24
+                    align (0.5,0.5)
+
+            frame:
+                minimum (178,64)
+                maximum (178,64)
+                button:
+                    selected (persistent.confirm_settings["delete_save"] == False)
+                    action [
+                    SetDict(persistent.confirm_settings, "delete_save", False),
+                    Play("sound", "audio/sfx/click.wav")  # 添加点击音效
+                    ]
+                    hovered Play("sound", "audio/sfx/hover.wav")
+                    idle_background "idle_screen_button"
+                    hover_background "hover_screen_button"  
+                    selected_idle_background "hover_screen_button"          
+                text _("关闭"):
+                    color "#DB7093"  
+                    size 24
+                    xalign 0.5
+                    yalign 0.5 
+        hbox:
+            first_spacing 200
+            box_align 0.5
+            spacing 100
+            frame:
+                minimum (400,64)
+                maximum (400,64)
+                text _("返回标题画面时确认："):
+                    size 28
+                    color "#DB7093"
+                    xalign 0
+                    yalign 0.5
+            frame:
+                minimum (178,64)
+                maximum (178,64)
+                button:
+                    selected (persistent.confirm_settings["return_to_title"] == True)
+                    action [
+                    SetDict(persistent.confirm_settings, "return_to_title", True),
+                    Play("sound", "audio/sfx/click.wav")  # 添加点击音效
+                    ]
+                    hovered Play("sound", "audio/sfx/hover.wav")
+                    idle_background "idle_screen_button"
+                    hover_background "hover_screen_button"
+                    selected_idle_background "hover_screen_button"
+                text _("开启"):
+                    color "#DB7093" 
+                    hover_color "#FFFFFF"
+                    size 24
+                    align (0.5,0.5)
+
+            frame:
+                minimum (178,64)
+                maximum (178,64)
+                button:
+                    selected (persistent.confirm_settings["return_to_title"] == False)
+                    action [
+                    SetDict(persistent.confirm_settings, "return_to_title", False),
+                    Play("sound", "audio/sfx/click.wav")  # 添加点击音效
+                    ]
+                    hovered Play("sound", "audio/sfx/hover.wav")
+                    idle_background "idle_screen_button"
+                    hover_background "hover_screen_button"  
+                    selected_idle_background "hover_screen_button"          
+                text _("关闭"):
+                    color "#DB7093"  
+                    size 24
+                    xalign 0.5
+                    yalign 0.5
+
 
 # 设置项标签样式
 style setting_label:
     size 28
-    color "#DB7093"  # 红色字体匹配图片
-    # font gui.sans_font
+    color "#000000"
     bold True
     yalign 0.0
-    # outlines [(1, "#000000", 0, 0)]  # 黑色描边增强可读性
-
-# 设置选项文本样式
-style setting_option:
-    size 24
-    color "#000000"  # 黑色文字匹配图片
-    font gui.interface_text_font

@@ -165,9 +165,11 @@ define config.quicksave_slots = 6
 ## Build configuration #########################################################
 ##
 ## This section controls how Ren'Py turns your project into distribution files.
+define config.language = "schinese"
 
 init python:
     ## Add SDK Fonts.
+    Language("schinese")
     config.searchpath.append(config.renpy_base + "/sdk-fonts")
     build.classify_renpy("sdk-fonts/**", "all")
     build._sdk_fonts = True

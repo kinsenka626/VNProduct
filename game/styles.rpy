@@ -65,7 +65,7 @@ style hyperlink_text:
     color "#DB7093"
 
 style gui_text:
-    color '#ffffff'
+    color '#DB7093'
     size gui.text_size
     font gui.interface_text_font
 
@@ -132,5 +132,5 @@ style vslider:
 
 
 style frame:
-    padding (6, 6, 6, 6)
-    background Frame("gui/frame.png", 6, 6, 6, 6, tile=False)
+    padding (0, 0, 0, 0)
+    # background "#668B8B"
