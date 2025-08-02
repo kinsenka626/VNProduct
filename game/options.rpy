@@ -162,6 +162,9 @@ define config.autosave_slots = 6
 ## Same thing, but for quick save
 define config.quicksave_slots = 6
 
+
+# define preferences.afm_after_click = False
+
 ## Build configuration #########################################################
 ##
 ## This section controls how Ren'Py turns your project into distribution files.
@@ -173,6 +176,7 @@ init python:
     config.searchpath.append(config.renpy_base + "/sdk-fonts")
     build.classify_renpy("sdk-fonts/**", "all")
     build._sdk_fonts = True
+
 
     ## The following functions take file patterns. File patterns are case-
     ## insensitive, and matched against the path relative to the base directory,

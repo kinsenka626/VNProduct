@@ -31,8 +31,6 @@ screen display_settings():
                 minimum (178,64)
                 maximum (178,64)
                 button:
-                    yalign 1
-                    xalign 1
                     action [Preference("display", "window"), Play("sound", "audio/sfx/click.wav")]
                     hovered Play("sound", "audio/sfx/hover.wav")
                     idle_background "idle_screen_button"
@@ -75,8 +73,8 @@ screen display_settings():
                 button:
                     selected (persistent.confirm_settings["overwrite_save"] == True)
                     action [
-                    SetDict(persistent.confirm_settings, "overwrite_save", True),
-                    Play("sound", "audio/sfx/click.wav")  # 添加点击音效
+                        SetDict(persistent.confirm_settings, "overwrite_save", True),
+                        Play("sound", "audio/sfx/click.wav")  # 添加点击音效
                     ]
                     hovered Play("sound", "audio/sfx/hover.wav")
                     idle_background "idle_screen_button"

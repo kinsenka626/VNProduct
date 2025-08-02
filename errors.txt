@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens/text.rpy", line 47: 'step' is not a keyword argument or valid child of the bar statement.
-    step 0.1
-        ^
+File "game/screens/dialogue_screens.rpy", line 28: python block expects a non-empty block.
+    python:
+           ^
 
 Ren'Py Version: Ren'Py 8.4.0.25071206
-Sat Aug  2 13:09:55 2025
+Sat Aug  2 22:03:22 2025

@@ -2,58 +2,50 @@
 
 While running game code:
   File "renpy/style.pyx", line 808, in renpy.style.rebuild
-  File "game/screens/display.rpy", line 9, in prepare_screen
-    screen display_settings():
-  File "game/screens/display.rpy", line 9, in prepare
-    screen display_settings():
-  File "game/screens/display.rpy", line 11, in prepare
-    vbox:
-  File "game/screens/display.rpy", line 11, in prepare
-    vbox:
-  File "game/screens/display.rpy", line 60, in prepare
-    hbox:
-  File "game/screens/display.rpy", line 60, in prepare
-    hbox:
-  File "game/screens/display.rpy", line 72, in prepare
-    frame:
-  File "game/screens/display.rpy", line 72, in prepare
-    frame:
-  File "game/screens/display.rpy", line 75, in prepare
-    button:
-  File "game/screens/display.rpy", line 75, in prepare
-    button:
-  File "game/screens/display.rpy", line 78
-    SetDict(persistent.confirm_settings, "return_to_title", False)
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+  File "game/screens/dialogue_screens.rpy", line 15, in prepare_screen
+    screen say(who, what):
+  File "game/screens/dialogue_screens.rpy", line 15, in prepare
+    screen say(who, what):
+  File "game/screens/dialogue_screens.rpy", line 18, in prepare
+    window:
+  File "game/screens/dialogue_screens.rpy", line 18, in prepare
+    window:
+  File "game/screens/dialogue_screens.rpy", line 21, in prepare
+    if who is not None:
+  File "game/screens/dialogue_screens.rpy", line 21, in prepare
+    if who is not None:
+  File "game/screens/dialogue_screens.rpy", line 23, in prepare
+    window:
+  File "game/screens/dialogue_screens.rpy", line 23, in prepare
+    window:
+  File "game/screens/dialogue_screens.rpy", line 24, in <module>
+    background Frame(Solid("#000000[hex_alpha]"), 25, 25)
+                     ~~~~~^^^^^^^^^^^^^^^^^^^^^^         
+Exception: Color string '000000[hex_alpha]' must be 3, 4, 6, or 8 hex digits long.
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "game/screens/display.rpy", line 9, in prepare_screen
-    screen display_settings():
-  File "game/screens/display.rpy", line 9, in prepare
-    screen display_settings():
-  File "game/screens/display.rpy", line 11, in prepare
-    vbox:
-  File "game/screens/display.rpy", line 11, in prepare
-    vbox:
-  File "game/screens/display.rpy", line 60, in prepare
-    hbox:
-  File "game/screens/display.rpy", line 60, in prepare
-    hbox:
-  File "game/screens/display.rpy", line 72, in prepare
-    frame:
-  File "game/screens/display.rpy", line 72, in prepare
-    frame:
-  File "game/screens/display.rpy", line 75, in prepare
-    button:
-  File "game/screens/display.rpy", line 75, in prepare
-    button:
-  File "game/screens/display.rpy", line 78
-    SetDict(persistent.confirm_settings, "return_to_title", False)
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+  File "game/screens/dialogue_screens.rpy", line 15, in prepare_screen
+    screen say(who, what):
+  File "game/screens/dialogue_screens.rpy", line 15, in prepare
+    screen say(who, what):
+  File "game/screens/dialogue_screens.rpy", line 18, in prepare
+    window:
+  File "game/screens/dialogue_screens.rpy", line 18, in prepare
+    window:
+  File "game/screens/dialogue_screens.rpy", line 21, in prepare
+    if who is not None:
+  File "game/screens/dialogue_screens.rpy", line 21, in prepare
+    if who is not None:
+  File "game/screens/dialogue_screens.rpy", line 23, in prepare
+    window:
+  File "game/screens/dialogue_screens.rpy", line 23, in prepare
+    window:
+  File "game/screens/dialogue_screens.rpy", line 24, in <module>
+    background Frame(Solid("#000000[hex_alpha]"), 25, 25)
+                     ~~~~~^^^^^^^^^^^^^^^^^^^^^^         
+Exception: Color string '000000[hex_alpha]' must be 3, 4, 6, or 8 hex digits long.
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -85,41 +77,34 @@ Traceback (most recent call last):
   File "renpy/display/screen.py", line 1035, in prepare_screens
     s.ast.prepare_screen()
     ~~~~~~~~~~~~~~~~~~~~^^
-  File "game/screens/display.rpy", line 9, in prepare_screen
-    screen display_settings():
-  File "game/screens/display.rpy", line 9, in prepare
-    screen display_settings():
-  File "game/screens/display.rpy", line 11, in prepare
-    vbox:
-  File "game/screens/display.rpy", line 11, in prepare
-    vbox:
-  File "game/screens/display.rpy", line 60, in prepare
-    hbox:
-  File "game/screens/display.rpy", line 60, in prepare
-    hbox:
-  File "game/screens/display.rpy", line 72, in prepare
-    frame:
-  File "game/screens/display.rpy", line 72, in prepare
-    frame:
-  File "game/screens/display.rpy", line 75, in prepare
-    button:
-  File "game/screens/display.rpy", line 75, in prepare
-    button:
-  File "renpy/pyanalysis.py", line 913, in ast_eval
-    return self.ast_eval_literal(expr)[0]
-           ~~~~~~~~~~~~~~~~~~~~~^^^^^^   
-  File "renpy/pyanalysis.py", line 895, in ast_eval_literal
-    expr = py_compile(expr, "eval", ast_node=True)
-           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1247, in py_compile
-    raise e
-  File "renpy/python.py", line 1177, in py_compile
-    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, True)
-           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/screens/display.rpy", line 78
-    SetDict(persistent.confirm_settings, "return_to_title", False)
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+  File "game/screens/dialogue_screens.rpy", line 15, in prepare_screen
+    screen say(who, what):
+  File "game/screens/dialogue_screens.rpy", line 15, in prepare
+    screen say(who, what):
+  File "game/screens/dialogue_screens.rpy", line 18, in prepare
+    window:
+  File "game/screens/dialogue_screens.rpy", line 18, in prepare
+    window:
+  File "game/screens/dialogue_screens.rpy", line 21, in prepare
+    if who is not None:
+  File "game/screens/dialogue_screens.rpy", line 21, in prepare
+    if who is not None:
+  File "game/screens/dialogue_screens.rpy", line 23, in prepare
+    window:
+  File "game/screens/dialogue_screens.rpy", line 23, in prepare
+    window:
+  File "renpy/python.py", line 1285, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/screens/dialogue_screens.rpy", line 24, in <module>
+    background Frame(Solid("#000000[hex_alpha]"), 25, 25)
+                     ~~~~~^^^^^^^^^^^^^^^^^^^^^^         
+  File "renpy/display/imagelike.py", line 50, in __init__
+    self.color = renpy.easy.color(color)
+                 ~~~~~~~~~~~~~~~~^^^^^^^
+  File "renpy/color.py", line 162, in __new__
+    raise Exception("Color string {!r} must be 3, 4, 6, or 8 hex digits long.".format(c))
+Exception: Color string '000000[hex_alpha]' must be 3, 4, 6, or 8 hex digits long.
 
 During handling of the above exception, another exception occurred:
 
@@ -175,43 +160,36 @@ Traceback (most recent call last):
   File "renpy/display/screen.py", line 1035, in prepare_screens
     s.ast.prepare_screen()
     ~~~~~~~~~~~~~~~~~~~~^^
-  File "game/screens/display.rpy", line 9, in prepare_screen
-    screen display_settings():
-  File "game/screens/display.rpy", line 9, in prepare
-    screen display_settings():
-  File "game/screens/display.rpy", line 11, in prepare
-    vbox:
-  File "game/screens/display.rpy", line 11, in prepare
-    vbox:
-  File "game/screens/display.rpy", line 60, in prepare
-    hbox:
-  File "game/screens/display.rpy", line 60, in prepare
-    hbox:
-  File "game/screens/display.rpy", line 72, in prepare
-    frame:
-  File "game/screens/display.rpy", line 72, in prepare
-    frame:
-  File "game/screens/display.rpy", line 75, in prepare
-    button:
-  File "game/screens/display.rpy", line 75, in prepare
-    button:
-  File "renpy/pyanalysis.py", line 913, in ast_eval
-    return self.ast_eval_literal(expr)[0]
-           ~~~~~~~~~~~~~~~~~~~~~^^^^^^   
-  File "renpy/pyanalysis.py", line 895, in ast_eval_literal
-    expr = py_compile(expr, "eval", ast_node=True)
-           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1247, in py_compile
-    raise e
-  File "renpy/python.py", line 1177, in py_compile
-    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, True)
-           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/screens/display.rpy", line 78
-    SetDict(persistent.confirm_settings, "return_to_title", False)
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+  File "game/screens/dialogue_screens.rpy", line 15, in prepare_screen
+    screen say(who, what):
+  File "game/screens/dialogue_screens.rpy", line 15, in prepare
+    screen say(who, what):
+  File "game/screens/dialogue_screens.rpy", line 18, in prepare
+    window:
+  File "game/screens/dialogue_screens.rpy", line 18, in prepare
+    window:
+  File "game/screens/dialogue_screens.rpy", line 21, in prepare
+    if who is not None:
+  File "game/screens/dialogue_screens.rpy", line 21, in prepare
+    if who is not None:
+  File "game/screens/dialogue_screens.rpy", line 23, in prepare
+    window:
+  File "game/screens/dialogue_screens.rpy", line 23, in prepare
+    window:
+  File "renpy/python.py", line 1285, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/screens/dialogue_screens.rpy", line 24, in <module>
+    background Frame(Solid("#000000[hex_alpha]"), 25, 25)
+                     ~~~~~^^^^^^^^^^^^^^^^^^^^^^         
+  File "renpy/display/imagelike.py", line 50, in __init__
+    self.color = renpy.easy.color(color)
+                 ~~~~~~~~~~~~~~~~^^^^^^^
+  File "renpy/color.py", line 162, in __new__
+    raise Exception("Color string {!r} must be 3, 4, 6, or 8 hex digits long.".format(c))
+Exception: Color string '000000[hex_alpha]' must be 3, 4, 6, or 8 hex digits long.
 
 Windows-11-10.0.22631-SP0 AMD64
 Ren'Py 8.4.0.25071206
 chuanyue 1.0
-Sat Aug  2 12:40:09 2025
+Sat Aug  2 22:03:31 2025

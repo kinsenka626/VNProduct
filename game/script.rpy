@@ -7,6 +7,9 @@ default loop_num = 3
 image bg_old:
     "images/bg_old.jpg"
     zoom 1.1
+image bg_2:
+    "images/bg_2.png"
+    zoom 1.0
 
 image bg_moli="bg_moli.jpg"
 image character_Emilia normal:
@@ -39,7 +42,7 @@ image side character_Emilia:
 label start:
 
     # 显示一个背景。此处默认显示占位图，但您也可以在图片目录添加一个文件
-    show bg_old
+    show bg_2
 
     # 显示角色立绘。此处使用了占位图，但您也可以在图片目录添加命名为
     show character_Emilia normal with dissolve

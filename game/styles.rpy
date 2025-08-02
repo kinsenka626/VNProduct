@@ -96,12 +96,11 @@ style label_text:
 
 # 特殊样式
 
-
-
 style bar:
     ysize 38
-    left_bar Frame("gui/bar/left.png", 6, 6, 6, 6, tile=False)
-    right_bar Frame("gui/bar/right.png", 6, 6, 6, 6, tile=False)
+    left_bar Frame("gui/bar/bar_filled.png", 6, 6, 6, 6, tile=False)
+    right_bar Frame("gui/bar/bar_empty.png", 6, 6, 6, 6, tile=False)
+    thumb Frame("gui/bar/seek.png", 0, 0, 0, 0, scale=0.2)
 
 style vbar:
     xsize 38

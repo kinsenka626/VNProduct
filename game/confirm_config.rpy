@@ -14,4 +14,10 @@
     # 删除存档时确认（防止误删存档文件）
     "delete_save": True
 }
-
+# define persistent.confirm_settings = {
+#     if persistent.window_opacity is None:
+#         persistent.window_opacity = 0.8  # 默认透明度
+# }
+default preferences.afm={
+    "after_click":True
+}
